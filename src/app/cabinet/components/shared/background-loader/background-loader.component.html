@@ -1,0 +1,11 @@
+<div class="attachment-wrapper" [class.loading]="isLoading">
+  <mat-spinner class="position-absolute" *ngIf="isLoading"></mat-spinner>
+  <div
+    class="background-image"
+    [class.loaded]="!isLoading"
+    [style.backgroundImage]="isLoading ? '' : getImageUrl(backgroundImageUrl)"
+  ></div>
+  <button *ngIf="fileId" (click)="deleteAttachment()" type="button">
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+</div>

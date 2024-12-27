@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { LangService } from '../../../../core/services/lang.service';
 import { forkJoin, Observable, tap } from 'rxjs';
 import { ProductsService } from '../../../../core/services/products.service';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-new-product',
@@ -30,7 +31,8 @@ export class NewProductComponent {
     private dataService: ProductsService,
     private categoryService: CategoriesService,
     private langService: LangService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private sanitizer: DomSanitizer
   ) {
     this.entityId = +this.route.snapshot.params['id'];
   }
@@ -135,10 +137,6 @@ export class NewProductComponent {
         console.log('response', response);
       });
     }
-  }
-
-  getImageUrl(url: string) {
-    return `url(${encodeURI(url)})`;
   }
 
   deleteAttachment(id: number) {

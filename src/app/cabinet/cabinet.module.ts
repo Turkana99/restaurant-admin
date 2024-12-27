@@ -32,6 +32,8 @@ import { TabMenuModule } from 'primeng/tabmenu';
 import { NewProductComponent } from './components/add-edit-components/new-product/new-product.component';
 import { NewTableComponent } from './components/add-edit-components/new-table/new-table.component';
 import { NewUserComponent } from './components/add-edit-components/new-user/new-user.component';
+import { BackgroundLoaderComponent } from './components/shared/background-loader/background-loader.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,7 @@ import { NewUserComponent } from './components/add-edit-components/new-user/new-
     NewProductComponent,
     NewTableComponent,
     NewUserComponent,
+    BackgroundLoaderComponent,
   ],
   imports: [
     CommonModule,
@@ -70,6 +73,7 @@ import { NewUserComponent } from './components/add-edit-components/new-user/new-
     DividerModule,
     DropdownModule,
     TabMenuModule,
+    NgxSpinnerModule,
   ],
   providers: [MessageService, ConfirmationService],
 })

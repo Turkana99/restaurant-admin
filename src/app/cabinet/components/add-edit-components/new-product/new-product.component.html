@@ -96,10 +96,9 @@
     </div>
 
     <div class="mb-3 d-flex flex-wrap" *ngIf="CoverImage">
-      <div
-        class="attachment-wrapper"
-        [ngStyle]="{ 'background-image': getImageUrl(CoverImage) }"
-      ></div>
+      <app-background-loader
+        [backgroundImageUrl]="CoverImage"
+      ></app-background-loader>
     </div>
 
     <div class="mb-3">
@@ -128,16 +127,13 @@
       </p>
     </div>
 
-    <div class="mb-3 d-flex flex-wrap" *ngIf="Attachments?.length">
-      <div
-        class="attachment-wrapper"
+    <div class="mb-3 d-flex flex-wrap gap-4" *ngIf="Attachments?.length">
+      <app-background-loader
         *ngFor="let attachment of Attachments"
-        [ngStyle]="{ 'background-image': getImageUrl(attachment.filePath) }"
-      >
-        <button (click)="deleteAttachment(attachment.id)" type="button">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-      </div>
+        [backgroundImageUrl]="attachment.filePath"
+        [fileId]="attachment.id"
+        (onDeleteImage)="deleteAttachment($event)"
+      ></app-background-loader>
     </div>
 
     <button
