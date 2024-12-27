@@ -1,0 +1,16 @@
+.main-content {
+  min-height: calc(100vh - 76px);
+}
+::ng-deep div.right-side {
+  width: calc(100% - var(--navbar-width) - 2vw);
+  display: flex;
+  flex-direction: column;
+  transition: margin-left 200ms, width 200ms;
+  margin-left: calc(2vw + var(--navbar-width));
+}
+::ng-deep app-cabinet:has(#nav-toggle:checked) {
+  .right-side {
+    margin-left: calc(2vw + var(--navbar-width-min)) !important;
+    width: calc(100% - var(--navbar-width-min) - 2vw) !important;
+  }
+}

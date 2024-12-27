@@ -1,0 +1,18 @@
+<div class="component-wrapper">
+  <div class="title d-flex justify-content-between align-items-center pt-4">
+    <div><h1>Sifarişlər</h1></div>
+  </div>
+  <div class="data_table">
+    <table-togglable-columns
+      *ngIf="data$ | async"
+      [dataSource]="rows"
+      [displayedColumns]="displayedColumns"
+      [paginator]="true"
+      editButtonText="düzəliş et"
+      deleteButtonText="sil"
+      (onEdit)="editEntity($event.id)"
+      (onDelete)="deleteEntity($event.id)"
+      (onPage)="onPageChange($event)"
+    ></table-togglable-columns>
+  </div>
+</div>

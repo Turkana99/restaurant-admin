@@ -1,0 +1,13 @@
+<div class="form-wrapper">
+  <form [formGroup]="formGroup">
+    @for (item of allColumns; track $index) { @if(item.key!='actions'){
+    <p-checkbox
+      [binary]="true"
+      inputId="binary"
+      [formControlName]="item.key"
+      [label]="item.name | titlecase"
+      class="pb-3"
+    />
+    } }
+  </form>
+</div>

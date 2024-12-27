@@ -1,0 +1,48 @@
+<div class="main-container" *ngIf="data$ | async">
+  <div class="title d-flex justify-content-between align-items-center pt-4">
+    <div><h1>Kateqoriya məlumatları</h1></div>
+  </div>
+
+  <form [formGroup]="form" (submit)="submit()">
+    <p-tabView>
+      <p-tabPanel
+        [header]="lang.displayName"
+        *ngFor="let lang of languages; let i = index"
+      >
+        <input
+          type="text"
+          pInputText
+          [formControl]="f.controls[i].get('name')"
+        />
+        <p
+          class="invalid-message"
+          *ngIf="
+            f.controls[i].get('name').touched &&
+            f.controls[i].get('name').invalid
+          "
+        >
+          Bu xana boş ola bilməz
+        </p>
+      </p-tabPanel>
+    </p-tabView>
+
+    <p-dropdown
+      [options]="allCategories"
+      formControlName="ownerId"
+      optionLabel="name"
+      optionValue="id"
+      [filter]="true"
+      filterBy="name"
+      [showClear]="true"
+      placeholder="Üst kateqoriya seçin"
+    >
+    </p-dropdown>
+    <button
+      class="add-btn px-4 py-2 me-4 mt-3"
+      type="submit"
+      [disabled]="form.invalid"
+    >
+      {{ entityId ? "Yadda saxla" : "Əlavə et" }}
+    </button>
+  </form>
+</div>

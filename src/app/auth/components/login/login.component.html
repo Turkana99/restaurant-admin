@@ -1,0 +1,24 @@
+<div class="page-content">
+  <form class="example-form" [formGroup]="loginForm" (submit)="login()">
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username" />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput [type]="inputType" formControlName="password" />
+      <button
+        matSuffix
+        mat-icon-button
+        aria-label="Toggle visibility"
+        type="button"
+        (click)="toggleType()"
+      >
+        <mat-icon>visibility</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <button mat-flat-button>Login</button>
+  </form>
+</div>

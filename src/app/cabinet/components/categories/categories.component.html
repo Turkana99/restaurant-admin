@@ -1,0 +1,25 @@
+<div class="component-wrapper">
+  <div class="title d-flex justify-content-between align-items-center pt-4">
+    <div><h1>Kateqoriyalar</h1></div>
+    <div>
+      <button routerLink="/new-category" class="add-btn px-4 py-2 me-4">
+        Əlavə et
+      </button>
+    </div>
+  </div>
+  <div class="data_table">
+    <table-togglable-columns
+      *ngIf="data$ | async"
+      [dataSource]="rows"
+      [displayedColumns]="displayedColumns"
+      [paginator]="true"
+      [editButton]="true"
+      editButtonText="düzəliş et"
+      [deleteButton]="true"
+      deleteButtonText="sil"
+      (onEdit)="editEntity($event.id)"
+      (onDelete)="deleteEntity($event.id)"
+      (onPage)="onPageChange($event)"
+    ></table-togglable-columns>
+  </div>
+</div>

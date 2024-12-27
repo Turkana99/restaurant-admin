@@ -1,0 +1,18 @@
+@import "../../../../styles/variables.scss";
+
+.component-wrapper {
+  .title {
+    h1 {
+      font-family: "Poppins", sans-serif !important;
+      font-weight: bold;
+      font-size: 38px;
+    }
+    .add-btn {
+      background-color: $new-color;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-family: "Poppins", sans-serif !important;
+    }
+  }
+}

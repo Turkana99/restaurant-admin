@@ -1,0 +1,113 @@
+<div class="table-wrapper">
+  <mat-table
+    [dataSource]="dataSource2"
+    matSort
+    multiTemplateDataRows
+    [ngStyle]="{ maxHeight: maxHeight + 'px' }"
+  >
+    @for (item of expandableFilteredColumns; track $index) {
+    <ng-container [matColumnDef]="item.key">
+      <mat-header-cell *matHeaderCellDef>
+        @if(item.key != 'actions2'){
+        <mat-form-field class="example-full-width" appearance="outline">
+          <input
+            class="w-100"
+            matInput
+            #inputField
+            (input)="filterDataSource(item.key, inputField, $index)"
+            [attr.data-key]="item.key"
+          />
+          @if (inputField.value) {
+          <button
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="resetCurrentFilter(item.key, inputField, $index)"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+          }
+        </mat-form-field>
+        }
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{ element[item] }}
+      </mat-cell>
+    </ng-container>
+    } @for (item of filteredColumns; track $index) {
+    <ng-container [matColumnDef]="item.key" [stickyEnd]="item.key == 'actions'">
+      @if(item.key=='actions'){
+      <mat-header-cell *matHeaderCellDef>
+        {{ item.name }}
+      </mat-header-cell>
+      } @if(item.key!='actions'){
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ item.name }}
+      </mat-header-cell>
+      }
+      <mat-cell *matCellDef="let element">
+        {{ element[item.key] }}
+        @if(item.key == 'actions'){
+        <div class="actions-buttons-wrapper ps-5 pe-0 m-0">
+          <button
+            mat-icon-button
+            color="primary"
+            *ngIf="detailButton"
+            (click)="onDetail.emit(element)"
+          >
+            <mat-icon>remove_red_eye</mat-icon>
+          </button>
+          <button
+            mat-icon-button
+            color="primary"
+            *ngIf="editButton"
+            (click)="onEdit.emit(element)"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button
+            mat-icon-button
+            color="warn"
+            *ngIf="deleteButton"
+            (click)="onDelete.emit(element)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+        }</mat-cell
+      >
+    </ng-container>
+    }
+
+    <mat-header-row *matHeaderRowDef="filteredColumnKeys; sticky: true">
+    </mat-header-row>
+    <!-- expandable row -->
+    <mat-header-row
+      *matHeaderRowDef="expandableFilteredColumnKeys; sticky: true"
+      [@filterExpand]="isHeaderExpanded ? 'expanded' : 'collapsed'"
+    >
+    </mat-header-row>
+    <mat-row *matRowDef="let row; columns: filteredColumnKeys"></mat-row>
+  </mat-table>
+
+  @if(paginator){
+  <mat-paginator
+    [pageSizeOptions]="pageSizeOptions"
+    showFirstLastButtons
+    (page)="onPageChange($event)"
+  ></mat-paginator>
+  }
+</div>
+
+<div class="sidebar-panel-cust">
+  <button mat-icon-button (click)="openDialog()">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    aria-label="Example icon button with a vertical three dot icon"
+    (click)="toggleHeaderExpansion()"
+  >
+    <mat-icon>filter_alt</mat-icon>
+  </button>
+</div>

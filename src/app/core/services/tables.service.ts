@@ -1,0 +1,44 @@
+import { Injectable } from '@angular/core';
+import { environment } from '../../environment';
+import { Observable } from 'rxjs';
+import { HttpClient, HttpParams } from '@angular/common/http';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class TablesService {
+  constructor(private http: HttpClient) {}
+  getAll(pageSize: number, pageIndex: number): Observable<any> {
+    const params = new HttpParams()
+      .set('PageSize', pageSize.toString())
+      .set('PageIndex', pageIndex.toString());
+    return this.http.get<any>(environment.diningTables, { params });
+  }
+
+  getLookup(): Observable<any> {
+    return this.http.get<any>(environment.diningTables);
+  }
+
+  add(request: any): Observable<any> {
+    return this.http.post<any>(environment.diningTables, request);
+  }
+
+  edit(request: any): Observable<any> {
+    return this.http.put<any>(environment.diningTables, request);
+  }
+
+  getById(id: number) {
+    return this.http.get<any>(`${environment.diningTables}/${id}`);
+  }
+
+  delete(id: number) {
+    return this.http.delete<any>(`${environment.diningTables}/${id}`);
+  }
+
+  //   filterCountry(request: any): Observable<any> {
+  //     return this.http.post<any>(
+  //       `${environment.cart}/GetList/ByDynamic`,
+  //       request
+  //     );
+  //   }
+}

@@ -1,0 +1,25 @@
+.page-content {
+  background-image: url("/assets/images/mainBg.png");
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  form {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    border-radius: 20px;
+    backdrop-filter: blur(4px);
+    border: 1px solid #0000001c;
+    background-color: #ffffff7d;
+
+    ::ng-deep [matformfieldnotchedoutline] {
+      backdrop-filter: blur(100px);
+    }
+  }
+}

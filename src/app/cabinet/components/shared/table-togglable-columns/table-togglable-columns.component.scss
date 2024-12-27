@@ -1,0 +1,121 @@
+@import "../../../../../styles/variables.scss";
+
+.sidebar-panel-cust {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #fdfbff;
+  width: 80px !important;
+  overflow: hidden;
+}
+
+.table-wrapper {
+  width: calc(100% - 80px);
+  .not-found-text {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 50px 0;
+  }
+
+  mat-table {
+    min-width: unset;
+    overflow-y: auto;
+    width: 100%;
+    font-family: "Poppins", sans-serif !important;
+    .actions-buttons-wrapper {
+      width: 100%;
+      display: flex;
+      gap: 1px;
+      justify-content: end;
+      align-items: center;
+    }
+
+    mat-header-row:first-child mat-header-cell:first-child {
+      border-top-left-radius: 10px !important;
+    }
+
+    mat-header-row:first-child mat-header-cell:last-child {
+      border-top-right-radius: 10px !important;
+    }
+
+    mat-header-cell {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: center;
+      gap: 5px;
+      padding: 5px 10px;
+      border-bottom: none !important;
+      background-color: var(--navbar-dark-primary);
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      color: white !important;
+      line-height: 20px !important;
+      font-family: "Poppins", sans-serif !important;
+      text-align: left !important;
+      cursor: pointer;
+      text-transform: none !important;
+
+      mat-form-field {
+        width: 100% !important;
+        background-color: white;
+        border-color: white;
+        border-radius: 8px;
+        --mat-form-field-container-width: 100% !important;
+        --mdc-filled-text-field-caret-color: white !important;
+        --mdc-filled-text-field-focus-active-indicator-color: white !important;
+        --mdc-outlined-text-field-caret-color: white;
+        --mdc-outlined-text-field-focus-outline-color: white !important;
+        --mdc-outlined-text-field-outline-color: white !important;
+      }
+    }
+
+    mat-cell {
+      padding: 20px 10px;
+    }
+
+    mat-header-cell,
+    mat-cell {
+      min-width: 400px;
+    }
+  }
+}
+::ng-deep .mat-form-field-container {
+  width: 100% !important;
+}
+::ng-deep .button-reject {
+  border: none;
+  border-radius: 20px !important;
+  outline: none;
+  background: transparent;
+  span {
+    color: #2563eb;
+  }
+}
+::ng-deep .button-accept {
+  border: none;
+  border-radius: 20px !important;
+  outline: none;
+  background: red;
+}
+
+::ng-deep .mat-sort-header-content {
+  text-transform: none !important;
+  text-align: left;
+}
+
+::ng-deep .mat-header-cell.actions-cell,
+.mat-cell.actions-cell {
+  position: sticky;
+  right: 0;
+  z-index: 1;
+  background-color: #fdfbff;
+}
+::ng-deep .mat-mdc-cell{
+  border-bottom-color: #d0d0d0 !important;
+}

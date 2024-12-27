@@ -1,0 +1,97 @@
+<div id="nav-bar">
+  <input
+    id="nav-toggle"
+    type="checkbox"
+    #navToggle
+    (change)="navToggled($event)"
+  />
+  <div id="nav-header">
+    <a
+      id="nav-title"
+      target="_blank"
+      class="ps-3 pe-5 d-flex justify-content-center align-items-center"
+      ><img src="assets/images/foodLogo.png" alt="" class="me-2" />
+      <span>Ləziz Restaurant</span></a
+    >
+    <label for="nav-toggle"><span id="nav-toggle-burger"></span></label>
+    <hr />
+  </div>
+
+  <div id="nav-content">
+    <div
+      routerLink="categories"
+      [routerLinkActiveOptions]="{ exact: true }"
+      routerLinkActive="router-link-active"
+      class="nav-button ps-3"
+      matTooltip="Kateqoriyalar"
+      matTooltipPosition="right"
+      [matTooltipDisabled]="disableTooltip"
+    >
+      <i class="fa-solid fa-list me-2"></i><span>Kateqoriyalar</span>
+    </div>
+    <div
+      routerLink="products"
+      [routerLinkActiveOptions]="{ exact: true }"
+      routerLinkActive="router-link-active"
+      class="nav-button ps-3"
+      matTooltip="Yeməklər"
+      matTooltipPosition="right"
+      [matTooltipDisabled]="disableTooltip"
+    >
+      <i class="fa-solid fa-utensils me-2"></i><span>Yeməklər</span>
+    </div>
+    <div
+      routerLink="tables"
+      [routerLinkActiveOptions]="{ exact: true }"
+      routerLinkActive="router-link-active"
+      class="nav-button ps-3"
+      matTooltip="Masalar"
+      matTooltipPosition="right"
+      [matTooltipDisabled]="disableTooltip"
+    >
+      <i class="fa-solid fa-table me-2"></i><span>Masalar</span>
+    </div>
+    <div
+      routerLink="orders"
+      [routerLinkActiveOptions]="{ exact: true }"
+      routerLinkActive="router-link-active"
+      class="nav-button ps-3"
+      matTooltip="Sifarişlər"
+      matTooltipPosition="right"
+      [matTooltipDisabled]="disableTooltip"
+    >
+      <i class="fa-solid fa-check-double me-2"></i><span>Sifarişlər</span>
+    </div>
+    <div
+      routerLink="users"
+      [routerLinkActiveOptions]="{ exact: true }"
+      routerLinkActive="router-link-active"
+      class="nav-button ps-3"
+      matTooltip="istifadəçilər"
+      matTooltipPosition="right"
+      [matTooltipDisabled]="disableTooltip"
+    >
+      <i class="fa-solid fa-users me-2"></i><span>istifadəçilər</span>
+    </div>
+    <div id="nav-content-highlight"></div>
+  </div>
+  <input id="nav-footer-toggle" type="checkbox" />
+  <div id="nav-footer">
+    <div id="nav-footer-heading">
+      <div id="nav-footer-avatar">
+        <img
+          src="https://gravatar.com/avatar/4474ca42d303761c2901fa819c4f2547"
+        />
+      </div>
+      <div id="nav-footer-titlebox" (click)="logout()">
+        <a id="nav-footer-title" href="" target="_blank" class="pt-2">Turkana</a
+        ><span id="nav-footer-subtitle">Admin</span>
+      </div>
+      <label for="nav-footer-toggle"><i class="fas fa-caret-up"></i></label>
+    </div>
+    <div id="nav-footer-content">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus,
+      reiciendis. Dignissimos esse beatae asperiores iure officia?
+    </div>
+  </div>
+</div>
