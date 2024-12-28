@@ -11,10 +11,7 @@ import { OrdersService } from '../../../core/services/orders.service';
   styleUrl: './orders.component.scss',
 })
 export class OrdersComponent {
-  constructor(
-    private dataService: OrdersService,
-    private router: Router,
-  ) {}
+  constructor(private dataService: OrdersService, private router: Router) {}
 
   rows!: any[];
 
@@ -30,8 +27,16 @@ export class OrdersComponent {
 
   displayedColumns: any[] = [
     {
-      key: 'name',
-      name: 'Kateqoriya',
+      key: 'ingredients',
+      name: 'Sifarişin tərkibi',
+    },
+    {
+      key: 'diningTable',
+      name: 'Masa',
+    },
+    {
+      key: 'totalPrice',
+      name: 'Qiymət',
     },
   ];
 
@@ -40,7 +45,14 @@ export class OrdersComponent {
       switchMap((pageEvent) =>
         this.dataService.getAll(pageEvent.pageIndex, pageEvent.pageSize).pipe(
           tap((response) => {
-            this.rows = response.items;
+            this.rows = response.items.map((x: any) => {
+              x.diningTable = x?.cart?.diningTable;
+              x.ingredients = x?.cart?.cartItems
+                .map((item: any) => `${item.productName} x ${item.quantity}`)
+                .join(' | ');
+
+              return x;
+            });
           })
         )
       )
