@@ -19,7 +19,11 @@ const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'categories',
+        redirectTo: 'orders',
+      },
+      {
+        path: 'orders',
+        component: OrdersComponent,
       },
       {
         path: 'categories',
@@ -32,10 +36,6 @@ const routes: Routes = [
       {
         path: 'new-category/:id',
         component: NewCategoryComponent,
-      },
-      {
-        path: 'orders',
-        component: OrdersComponent,
       },
       {
         path: 'products',

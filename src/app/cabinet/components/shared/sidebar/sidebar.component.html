@@ -19,6 +19,17 @@
 
   <div id="nav-content">
     <div
+      routerLink="orders"
+      [routerLinkActiveOptions]="{ exact: true }"
+      routerLinkActive="router-link-active"
+      class="nav-button ps-3"
+      matTooltip="Sifarişlər"
+      matTooltipPosition="right"
+      [matTooltipDisabled]="disableTooltip"
+    >
+      <i class="fa-solid fa-check-double me-2"></i><span>Sifarişlər</span>
+    </div>
+    <div
       routerLink="categories"
       [routerLinkActiveOptions]="{ exact: true }"
       routerLinkActive="router-link-active"
@@ -52,17 +63,6 @@
       <i class="fa-solid fa-table me-2"></i><span>Masalar</span>
     </div>
     <div
-      routerLink="orders"
-      [routerLinkActiveOptions]="{ exact: true }"
-      routerLinkActive="router-link-active"
-      class="nav-button ps-3"
-      matTooltip="Sifarişlər"
-      matTooltipPosition="right"
-      [matTooltipDisabled]="disableTooltip"
-    >
-      <i class="fa-solid fa-check-double me-2"></i><span>Sifarişlər</span>
-    </div>
-    <div
       routerLink="users"
       [routerLinkActiveOptions]="{ exact: true }"
       routerLinkActive="router-link-active"
@@ -83,15 +83,14 @@
           src="https://gravatar.com/avatar/4474ca42d303761c2901fa819c4f2547"
         />
       </div>
-      <div id="nav-footer-titlebox" (click)="logout()">
+      <div id="nav-footer-titlebox">
         <a id="nav-footer-title" href="" target="_blank" class="pt-2">Turkana</a
         ><span id="nav-footer-subtitle">Admin</span>
       </div>
       <label for="nav-footer-toggle"><i class="fas fa-caret-up"></i></label>
     </div>
     <div id="nav-footer-content">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus,
-      reiciendis. Dignissimos esse beatae asperiores iure officia?
+      <button (click)="logout()" class="logout-btn w-100 py-2">Logout</button>
     </div>
   </div>
 </div>

@@ -13,7 +13,7 @@ export class AuthGuard implements CanActivate {
     const isAuthenticated = this.authService.isAuthenticated();
     if (isAuthenticated) {
       // User is not authenticated, navigate to login page
-      this.router.navigate(['/categories']);
+      this.router.navigate(['/orders']);
       return false; // Prevent navigation to the requested route
     }
 
@@ -21,7 +21,7 @@ export class AuthGuard implements CanActivate {
     const token = localStorage.getItem('accessToken');
     if (token && !this.authService.isTokenExpired(token)) {
       // Token is expired, navigate to login page
-      this.router.navigate(['/categories']);
+      this.router.navigate(['/orders']);
       return false; // Prevent navigation to the requested route
     }
 
