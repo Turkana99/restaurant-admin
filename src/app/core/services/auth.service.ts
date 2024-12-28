@@ -43,7 +43,7 @@ export class AuthService {
 
           this.user = this.getDecodedAccessToken(response.accessToken.token);
           localStorage.setItem('accessToken', response.accessToken.token);
-          this.router.navigate(['/categories']);
+          this.router.navigate(['/orders']);
           return response;
         })
       );
