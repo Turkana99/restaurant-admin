@@ -44,7 +44,7 @@ export class NewCategoryComponent implements OnInit {
         this.languages = langs.items;
 
         this.form = this.fb.group({
-          ownerId: null,
+          ownerId: entity?.ownerId,
           categoryLangs: this.fb.array(
             this.languages.map((el: any, index: number) => {
               return this.fb.group({
