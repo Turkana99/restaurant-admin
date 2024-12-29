@@ -38,6 +38,10 @@ export class OrdersComponent {
       key: 'totalPrice',
       name: 'Qiymət',
     },
+    {
+      key: 'orderDate',
+      name: 'Tarixi',
+    },
   ];
 
   ngOnInit(): void {
@@ -46,6 +50,7 @@ export class OrdersComponent {
         this.dataService.getAll(pageEvent.pageIndex, pageEvent.pageSize).pipe(
           tap((response) => {
             this.rows = response.items.map((x: any) => {
+              x.orderDate = x.orderDate;
               x.diningTable = x?.cart?.diningTable;
               x.ingredients = x?.cart?.cartItems
                 .map((item: any) => `${item.productName} x ${item.quantity}`)

@@ -9,6 +9,7 @@
         [header]="lang.displayName"
         *ngFor="let lang of languages; let i = index"
       >
+        <label for="Price">Masa:</label>
         <input
           type="text"
           pInputText
@@ -26,13 +27,13 @@
       </p-tabPanel>
     </p-tabView>
     <div class="d-flex justify-content-end">
-    <button
-      class="add-btn px-4 py-2 mt-3"
-      type="submit"
-      [disabled]="form.invalid"
-    >
-      {{ entityId ? "Yadda saxla" : "Əlavə et" }}
-    </button>
+      <button
+        class="add-btn px-4 py-2 mt-3"
+        type="submit"
+        [disabled]="form.invalid"
+      >
+        {{ entityId ? "Yadda saxla" : "Əlavə et" }}
+      </button>
     </div>
   </form>
 </div>

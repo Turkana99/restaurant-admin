@@ -302,6 +302,7 @@ label[for="nav-toggle"] {
   width: 10px;
   display: flex;
   flex-direction: column;
+  gap: 2;
   transition: opacity 1s;
 }
 #nav-footer-title {

@@ -25,4 +25,11 @@ export class SidebarComponent {
     // disableTooltip
     this.disableTooltip = !event.target?.checked;
   }
+  // Load user data from local storage
+  loadUserData() {
+    const userJson = localStorage.getItem('user');
+    if (userJson) {
+      this.userData = JSON.parse(userJson);
+    }
+  }
 }
