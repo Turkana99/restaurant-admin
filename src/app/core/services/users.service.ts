@@ -24,7 +24,7 @@ export class UsersService {
   }
 
   getById(id: number) {
-    return this.http.get<any>(`${environment.users}/${id}`);
+    return this.http.get<any>(`${environment.users}/user-by-id/${id}`);
   }
 
   delete(id: number) {
@@ -37,4 +37,8 @@ export class UsersService {
   //       request
   //     );
   //   }
+
+  getOperationClaims(): Observable<any> {
+    return this.http.get<any>(environment.OperationClaims);
+  }
 }

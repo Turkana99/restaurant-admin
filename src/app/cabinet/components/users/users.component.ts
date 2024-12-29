@@ -74,12 +74,12 @@ export class UsersComponent {
   deleteEntity(id: number) {
     this.dataService.delete(id).subscribe({
       complete: () => {
-        this.reload();
+        location.reload();
       },
     });
   }
 
-  reload() {
-    this.page$.next(this._defaultPage);
-  }
+  // reload() {
+  //   this.page$.next(this._defaultPage);
+  // }
 }

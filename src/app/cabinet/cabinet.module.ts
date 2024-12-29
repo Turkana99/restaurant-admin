@@ -34,7 +34,8 @@ import { NewTableComponent } from './components/add-edit-components/new-table/ne
 import { NewUserComponent } from './components/add-edit-components/new-user/new-user.component';
 import { BackgroundLoaderComponent } from './components/shared/background-loader/background-loader.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
-
+import { MultiSelectModule } from 'primeng/multiselect';
+import { PasswordModule } from 'primeng/password';
 @NgModule({
   declarations: [
     CabinetComponent,
@@ -74,6 +75,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     DropdownModule,
     TabMenuModule,
     NgxSpinnerModule,
+    MultiSelectModule,
+    PasswordModule
   ],
   providers: [MessageService, ConfirmationService],
 })

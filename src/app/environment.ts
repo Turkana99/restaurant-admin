@@ -13,4 +13,5 @@ export const environment = {
   product: `${apiUrl}/Products`,
   subCategory: `${apiUrl}/SubCategories`,
   users: `${apiUrl}/Users`,
+  OperationClaims:`${apiUrl}/OperationClaims/list-operation-claims`,
 };
